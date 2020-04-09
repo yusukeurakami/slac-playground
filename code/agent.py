@@ -210,7 +210,9 @@ class SlacAgent:
         if self.episodes % self.training_log_interval == 0:
             self.writer.add_scalar(
                 'reward/train', self.train_rewards.get(), self.steps)
-
+            self.writer.add_scalar(
+                'train/episode_reward', self.train_rewards.get(), self.steps)
+                
         print(f'episode: {self.episodes:<4}  '
               f'episode steps: {episode_steps:<4}  '
               f'reward: {episode_reward:<5.1f}')
